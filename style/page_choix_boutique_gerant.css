@@ -1,0 +1,68 @@
+.page-choix-gerant{
+    background:#F9FBD9;
+    padding:40px;
+    text-align:center;
+}
+
+.banniere-gerant{
+    width:80%;
+    margin:auto;
+    display:block;
+}
+
+.boutiques-gerant h2{
+    font-family:'Playfair Display', serif;
+    font-size:40px;
+    font-weight:400;
+    margin:40px 0;
+}
+
+.grille-boutiques-gerant{
+    width:80%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.lien-boutique{
+    text-decoration:none;
+    color:black;
+}
+
+.carte-boutique-gerant{
+    padding:20px;
+    text-align:left;
+    font-family:'Roboto', sans-serif;
+}
+
+.carte-boutique-gerant img{
+    width:100%;
+}
+
+.carte-boutique-gerant h3{
+    font-size:22px;
+    font-weight:400;
+}
+
+.carte-boutique-gerant p{
+    font-size:16px;
+}
+
+.btn-gerer{
+    background:white;
+    width:180px;
+    margin:20px auto 0 auto;
+    padding:12px;
+    text-align:center;
+}
+
+.btn-gerer:hover{
+    background:#8DD07C;
+}
+
+.bleu{ background:#38B6FF; }
+.rose{ background:#FF66C4; }
+.jaune{ background:#FFDE59; }
+.orange{ background:#FFBD59; }
+.violet{ background:#E2A9F1; }

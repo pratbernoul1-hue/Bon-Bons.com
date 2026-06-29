@@ -1,0 +1,84 @@
+.page-contact{
+    background-color:#F9FBD9;
+    padding:20px 50px 60px 50px;
+}
+
+.page-contact h1{
+    font-family:'Playfair Display', serif;
+    font-size:55px;
+    font-weight:400;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+/* SERVICE CLIENT */
+
+.service-client{
+    background-color:#F9DCDC;
+    padding:20px;
+}
+
+.titre-service{
+    background-color:white;
+    text-align:center;
+    padding:15px;
+    margin-bottom:25px;
+}
+
+.titre-service p{
+    font-family:'Roboto', sans-serif;
+    font-size:22px;
+}
+
+.infos-contact{
+    display:flex;
+    justify-content:space-around;
+}
+
+.info-box{
+    background-color:white;
+    padding:15px 35px;
+    text-align:center;
+}
+
+.info-box p{
+    font-family:'Roboto', sans-serif;
+}
+
+/* RESEAUX */
+
+.texte-reseaux{
+    font-family:'Roboto', sans-serif;
+    font-size:18px;
+    margin:30px 0;
+}
+
+.reseaux-contact{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.reseau-box{
+    background-color:#F9DCDC;
+    width:22%;
+    height:200px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+    color:black;
+}
+
+.reseau-box img{
+    width:120px;
+    height:150px;
+}
+
+.reseau-box p{
+    font-family:'Roboto', sans-serif;
+    font-size:16px;
+}

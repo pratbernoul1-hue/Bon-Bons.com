@@ -1,0 +1,109 @@
+/* header */
+header{
+    background:#BEE193;
+    padding:15px;
+}
+
+.header-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo img{
+    width:90px;
+}
+
+nav{
+    display:flex;
+    gap:40px;
+}
+
+nav a, 
+.btn-deconnexion,
+.footer-colonne a{
+    text-decoration:none;
+    color:black;
+}
+
+nav a,
+.bonjour{
+    font-size:22px;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.btn-deconnexion{
+    background:white;
+    border:1px solid grey;
+    padding:10px;
+}
+
+.cart{
+    position:relative;
+    font-size:30px;
+    color:black;
+    text-decoration:none;
+}
+
+#nombre-panier{
+    position:absolute;
+    top:-10px;
+    right:-12px;
+
+    background:black;
+    color:white;
+
+    width:24px;
+    height:24px;
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:12px;
+}
+
+/* footer */
+
+footer{
+    background:#83B070;
+    padding:25px;
+}
+
+.footer-container{
+    display:flex;
+    justify-content:space-around;
+}
+
+.footer-colonne{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.footer-colonne h3{
+    font-size:22px;
+}
+
+.footer-colonne a{
+    margin:4px;
+    font-size:16px;
+}
+
+.footer-reseaux{
+    display:flex;
+    justify-content:center;
+    gap:45px;
+    margin-top:25px;
+}
+
+.footer-reseaux img{
+    width:45px;
+    height:45px;
+}

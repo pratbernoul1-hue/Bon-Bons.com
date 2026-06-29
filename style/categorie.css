@@ -1,0 +1,331 @@
+.page-categorie{
+    background-color:#F9FBD9;
+    padding:40px 60px;
+}
+
+/* BANNIERE */
+
+.banniere-catalogue{
+    width:80%;
+    display:block;
+    margin:auto;
+}
+
+/* BOUTON TRIER */
+
+.tri{
+    margin:30px;
+    position:relative;
+}
+
+#btn-tri{
+    background:white;
+    border:none;
+    border-radius:10px;
+    padding:10px 20px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#btn-tri:hover{
+    background-color:#8DD07C;
+}
+
+.menu-tri{
+    display:none;
+    background:white;
+    border:2px solid black;
+    width:230px;
+    position:absolute;
+    z-index:10;
+}
+
+.tri:hover .menu-tri{
+    display:block;
+}
+
+.menu-tri a{
+    display:block;
+    color:black;
+    text-decoration:none;
+    padding:10px;
+    border-bottom:1px solid black;
+}
+
+.menu-tri a:hover{
+    background-color:#8DD07C;
+}
+
+/* TITRE */
+
+.page-categorie h1{
+    font-family:'Playfair Display', serif;
+    font-size:28px;
+    font-weight:400;
+    margin-bottom:30px;
+}
+
+/* PRODUITS */
+
+.produits-categorie{
+    display:flex;
+    gap:40px;
+    margin-bottom:50px;
+    flex-wrap:wrap;
+}
+
+.carte-produit{
+    width:210px;
+    min-height:330px;
+    padding:16px;
+    border-radius:8px;
+    font-family:'Roboto', sans-serif;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.carte-produit img{
+    width:100%;
+    height:140px;
+    object-fit:contain;
+}
+
+.carte-produit h3{
+    font-size:16px;
+    margin:5px 0;
+}
+
+.carte-produit p{
+    font-size:14px;
+    margin:5px 0;
+}
+
+.carte-produit button{
+    background:white;
+    border:none;
+    border-radius:8px;
+    padding:7px;
+    font-size:13px;
+    cursor:pointer;
+}
+
+.carte-produit button:hover{
+    background-color:#8DD07C;
+}
+
+.lien-produit{
+    color:black;
+    text-decoration:none;
+}
+
+.lien-produit:hover h3{
+    text-decoration:underline;
+}
+
+/* COULEURS DES CARTES */
+
+.carte-produit.bleu{
+    background-color:#38B6FF;
+}
+
+.carte-produit.rose{
+    background-color:#FF66C4;
+}
+
+.carte-produit.jaune{
+    background-color:#FFDE59;
+}
+
+.carte-produit.orange{
+    background-color:#FFBD59;
+}
+
+.carte-produit.violet{
+    background-color:#E2A9F1;
+}
+
+/* BANNIERE DEFILEMENT */
+
+.banniere-defilement{
+    background-image:url("../img/vrai_image/fond1.png");
+    background-size:cover;
+    background-position:center;
+
+    width:100%;
+    margin:40px 0;
+    padding:20px;
+    text-align:center;
+
+    position:relative;
+}
+
+.banniere-defilement h2{
+    font-family:'Playfair Display', serif;
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.produits-defilement{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+}
+
+.produits-defilement img{
+    width:90px;
+    height:90px;
+    object-fit:contain;
+}
+
+.fleche{
+    position:absolute;
+    top:50%;
+    background:none;
+    border:none;
+    color:white;
+    font-size:50px;
+    cursor:pointer;
+}
+
+.gauche-fleche{
+    left:10px;
+}
+
+.droite-fleche{
+    right:10px;
+}
+
+/* PANIER */
+
+.barre-panier{
+    position:fixed;
+    top:0;
+    right:-350px;
+
+    width:350px;
+    height:100%;
+
+    background:#F9DCDC;
+
+    transition:0.3s;
+    z-index:50;
+}
+
+.ouvert{
+    right:0;
+}
+
+.titre-panier{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background-color:#83B070;
+    color:white;
+    text-decoration:none;
+
+    padding:20px;
+    font-family:'Roboto', sans-serif;
+}
+
+.produit-panier{
+    margin:20px;
+    padding:15px;
+    border-radius:8px;
+    font-family:'Roboto', sans-serif;
+}
+
+.produit-panier img{
+    width:90px;
+}
+
+.ligne-produit{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.quantite{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    margin:10px 0;
+}
+
+.quantite button{
+    background:none;
+    border:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.nombre-produit{
+    background:white;
+    padding:8px 35px;
+    border-radius:12px;
+}
+
+.btn-panier,
+.supprimer{
+    background:white;
+    border:none;
+    border-radius:10px;
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+.btn-panier:hover,
+.supprimer:hover{
+    background-color:#8DD07C;
+}
+
+/* COULEURS PANIER */
+
+.produit-panier.bleu{
+    background-color:#38B6FF;
+}
+
+.produit-panier.rose{
+    background-color:#FF66C4;
+}
+
+.produit-panier.jaune{
+    background-color:#FFDE59;
+}
+
+.produit-panier.orange{
+    background-color:#FFBD59;
+}
+
+.produit-panier.violet{
+    background-color:#E2A9F1;
+}
+
+/* NOMBRE PANIER */
+
+.cart{
+    position:relative;
+}
+
+#nombre-panier{
+    position:absolute;
+    top:-10px;
+    right:-10px;
+
+    width:24px;
+    height:24px;
+
+    background:black;
+    color:white;
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:12px;
+    font-weight:bold;
+}

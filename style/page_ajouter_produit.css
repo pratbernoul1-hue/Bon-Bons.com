@@ -1,0 +1,72 @@
+.page-ajout{
+    background-color:#F9FBD9;
+    padding:40px;
+}
+
+.bloc-ajout{
+    background-color:#F9DCDC;
+    width:85%;
+    margin:auto;
+    padding:35px;
+    display:flex;
+    gap:60px;
+    font-family:'Roboto', sans-serif;
+}
+
+.partie-image{
+    width:35%;
+}
+
+.partie-formulaire{
+    width:55%;
+}
+
+label{
+    display:block;
+    margin-bottom:15px;
+    font-size:18px;
+}
+
+input,
+select{
+    width:100%;
+    background:#8c8c8c;
+    border:none;
+    margin-bottom:25px;
+    font-family:'Roboto', sans-serif;
+}
+
+input{
+    height:30px;
+}
+
+select{
+    padding:10px;
+    background:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button{
+    background:white;
+    border:none;
+    border-radius:8px;
+    padding:10px 25px;
+    color:black;
+    cursor:pointer;
+    font-family:'Roboto', sans-serif;
+}
+
+button:hover{
+    background-color:#8DD07C;
+}
+
+.bouton-valider{
+    display:flex;
+    justify-content:center;
+    margin-top:20px;
+}
+
+#nombre-panier{
+    display:none;
+}

@@ -1,0 +1,39 @@
+.page-apropos{
+    background-color:#F9FBD9;
+    padding:70px;
+}
+
+.bloc-apropos{
+    background-image:url("../img/vrai_image/fond.png");
+    background-size:cover;
+    background-position:center;
+    padding:50px 100px;
+}
+
+.titre-apropos{
+    background-color:#BEE193;
+    opacity:0.85;
+    padding:20px;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.titre-apropos h1{
+    font-family:'Playfair Display', serif;
+    font-size:65px;
+    font-weight:400;
+    margin:0;
+}
+
+.texte-apropos{
+    background-color:#BEE193;
+    opacity:0.85;
+    padding:25px;
+}
+
+.texte-apropos p{
+    font-family:'Roboto', sans-serif;
+    font-size:16px;
+    color:black;
+    margin-bottom:18px;
+}

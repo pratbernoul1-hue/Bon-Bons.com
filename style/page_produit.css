@@ -1,0 +1,63 @@
+.page-produit{
+    background-color:#F9FBD9;
+    padding:40px;
+}
+
+.bloc-produit{
+    width:85%;
+    margin:auto;
+    padding:35px;
+    display:flex;
+    gap:40px;
+    background-color:#FFBD59;
+}
+
+.image-produit img{
+    width:300px;
+}
+
+.infos-produit{
+    font-family:'Roboto', sans-serif;
+}
+
+.infos-produit h1{
+    font-family:'Playfair Display', serif;
+    font-size:35px;
+}
+
+.ligne-achat{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.ligne-achat button{
+    background:white;
+    border:none;
+    padding:10px 25px;
+    cursor:pointer;
+}
+
+.ligne-achat button:hover{
+    background-color:#8DD07C;
+}
+
+#quantite{
+    background:white;
+    padding:10px 45px;
+}
+
+.prix{
+    font-size:28px;
+}
+
+.avis{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:15px;
+}
+
+.avis-box{
+    background:white;
+    padding:10px;
+}

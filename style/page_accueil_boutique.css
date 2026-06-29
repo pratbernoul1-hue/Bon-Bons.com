@@ -1,0 +1,142 @@
+.accueil{
+    background-color:#F9FBD9;
+    text-align:center;
+    padding-top:70px;
+    position:relative;
+    overflow:hidden;
+}
+
+/* textes généraux */
+.bloc-bienvenue h1,
+.presentation-marque h2,
+.boutiques h2{
+    font-family:'Playfair Display', serif;
+    font-weight:400;
+    color:#2f2f2f;
+}
+
+.bloc-bienvenue p,
+.presentation-marque p,
+.carte-boutique h3,
+.carte-boutique p{
+    font-family:'Roboto', sans-serif;
+    color:#2f2f2f;
+}
+
+/* bienvenue */
+.bloc-bienvenue h1{
+    font-size:70px;
+    font-weight:500;
+    margin-bottom:100px;
+}
+
+.bloc-bienvenue p{
+    font-size:28px;
+    color:#333;
+}
+
+.logo-centre{
+    width:260px;
+}
+
+.image-gauche,
+.image-droite{
+    position:absolute;
+    top:0;
+}
+
+.image-gauche{
+    left:0;
+    width:430px;
+}
+
+.image-droite{
+    right:0;
+    width:380px;
+}
+
+/* présentation */
+.presentation-marque{
+    margin-top:80px;
+}
+
+.bloc-images{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.ligne-images{
+    display:contents;
+}
+
+.bloc-images img{
+    width:100%;
+    height:260px;
+    object-fit:contain;
+    background-color:#F9FBD9;
+}
+
+.presentation-marque h2,
+.boutiques h2{
+    font-size:32px;
+    margin-top:60px;
+}
+
+.presentation-marque p{
+    width:75%;
+    margin:auto;
+    font-size:14px;
+    line-height:1.5;
+}
+
+/* boutiques */
+.boutiques{
+    margin:80px 0;
+}
+
+.boutiques h2{
+    margin-bottom:40px;
+}
+
+.grille-boutiques{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:30px;
+}
+
+.carte-boutique{
+    padding:12px;
+    text-align:left;
+}
+
+.carte-boutique img{
+    width:100%;
+}
+
+.carte-boutique h3{
+    font-size:18px;
+    font-weight:400;
+    margin:10px 0;
+}
+
+.carte-boutique p{
+    font-size:14px;
+    margin:0;
+}
+
+.lien-boutique{
+    text-decoration:none;
+    color:black;
+}
+
+/* couleurs */
+.bleu{ background-color:#38B6FF; }
+.rose{ background-color:#FF66C4; }
+.jaune{ background-color:#FFDE59; }
+.orange{ background-color:#FFBD59; }
+.violet{ background-color:#E2A9F1; }
