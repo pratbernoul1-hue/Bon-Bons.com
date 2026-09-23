@@ -1,95 +1,170 @@
 <?php
-include_once("header.php");
+
+// Affiche les erreurs pour trouver le problème
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Connexion à la base de données
 include_once("db.php");
 
-$boutique_id = 1; // on selectionne la boutique id 1 si aucune le client ne c'est pas connecter 
+// Boutique 1 par défaut
+$boutique_id = 1;
 
-if(isset($_GET["boutique_id"])){
-    $boutique_id = $_GET["boutique_id"]; // regarde qu'elle boutique a été choisi 
+// Récupère la boutique choisie
+if (isset($_GET["boutique_id"])) {
+    $boutique_id = (int) $_GET["boutique_id"];
 }
 
-// elle recupere les données des bonbons dispo dans la boutique 
-$produits = dbquery("
-    SELECT
-        stocks.quantite,
-        confiseries.nom,
-        confiseries.type,
-        confiseries.couleur,
-        confiseries.prix,
-        confiseries.illustration,
-        confiseries.description
-    FROM stocks
-    JOIN confiseries ON stocks.confiserie_id = confiseries.id 
-    WHERE stocks.boutique_id = ?
-    ORDER BY confiseries.id
-", [$boutique_id]); // ? remplacer que par les données de la boutique choisi // pour avoir toutes les données un join 
-
-$categories = [ 
+// Liste des catégories
+$categories = [
     "Fruits du Verger",
     "Fruits Exotiques & Rares",
     "Agrumes de Provence",
     "Traditions Gourmandes",
     "Nature & Bien-être"
-];// les catégories a afficher et il crée des colonnes 
+];
+
+// Récupération des produits
+try {
+
+    $produits = dbquery("
+        SELECT
+            stocks.quantite,
+            confiseries.nom,
+            confiseries.type,
+            confiseries.couleur,
+            confiseries.prix,
+            confiseries.illustration,
+            confiseries.description
+        FROM stocks
+        JOIN confiseries
+            ON stocks.confiserie_id = confiseries.id
+        WHERE stocks.boutique_id = ?
+        ORDER BY confiseries.id
+    ", [$boutique_id]);
+
+} catch (Exception $e) {
+
+    die(
+        "<h2>Erreur dans le catalogue</h2>
+        <p>" . htmlspecialchars($e->getMessage()) . "</p>"
+    );
+
+}
+
+// On affiche le header seulement après la requête
+include_once("header.php");
+
 ?>
 
 <link rel="stylesheet" href="style/catalogue.css">
 
 <main class="catalogue">
 
-    <img src="img/vrai_image/banniere.png" alt="Bannière Les Bon-bons" class="banniere-catalogue">
+    <img
+        src="img/vrai_image/banniere.png"
+        alt="Bannière Les Bon-bons"
+        class="banniere-catalogue"
+    >
 
     <div class="tri">
-        <button id="btn-tri">Trier par ▼</button> <!--important pour le js -->
+
+        <button id="btn-tri">
+            Trier par ▼
+        </button>
 
         <div id="menu-tri" class="menu-tri">
-            <a href="page_categorie1.php?cat=Fruits du Verger">Fruits du Verger</a>
-            <a href="page_categorie2.php?cat=Fruits Exotiques & Rares">Fruits Exotiques & Rares</a>
-            <a href="page_categorie3.php?cat=Agrumes de Provence">Agrumes de Provence</a>
-            <a href="page_categorie4.php?cat=Traditions Gourmandes">Traditions Gourmandes</a>
-            <a href="page_categorie5.php?cat=Nature & Bien-être">Nature & Bien-être</a>
+
+            <a href="page_categorie1.php?cat=Fruits%20du%20Verger">
+                Fruits du Verger
+            </a>
+
+            <a href="page_categorie2.php?cat=Fruits%20Exotiques%20%26%20Rares">
+                Fruits Exotiques & Rares
+            </a>
+
+            <a href="page_categorie3.php?cat=Agrumes%20de%20Provence">
+                Agrumes de Provence
+            </a>
+
+            <a href="page_categorie4.php?cat=Traditions%20Gourmandes">
+                Traditions Gourmandes
+            </a>
+
+            <a href="page_categorie5.php?cat=Nature%20%26%20Bien-%C3%AAtre">
+                Nature & Bien-être
+            </a>
+
         </div>
+
     </div>
 
-    <section class="grille-catalogue"> <!--afichage des catégories et des cartes produits -->
 
-        <?php foreach($categories as $categorie){ ?> <!--parcours toute les catégories et a chaque tour elle prend une données differentes et elle crée un =e collone a pour chaque catégories -->
+    <section class="grille-catalogue">
+
+        <?php foreach ($categories as $categorie) { ?>
 
             <div class="colonne-categorie">
 
-                <h2><?= $categorie ?></h2> <!--pour chaque categories on crée une collone avec son titre -->
+                <h2>
+                    <?= htmlspecialchars($categorie) ?>
+                </h2>
 
-                <?php foreach($produits as $produit){ ?> <!--on parcours tous les produits de la base des données -->
 
-                    <?php if($produit["type"] == $categorie){ ?> <!--verifier si le produit appartient a la bonne ctegories -->
+                <?php foreach ($produits as $produit) { ?>
 
-                        <div class="carte-produit <?= $produit["couleur"] ?>"> <!--on crée la cards avec la couleurs qui change en fonction -->
 
-                            <a href="Page_produit_nougats.php" class="lien-produit">
-                                <img src="<?= $produit["illustration"] ?>" alt="<?= $produit["nom"] ?>"> <!-- toutes les données sont recupere le la base de données et retranscrite -->
-                                <h3><?= $produit["nom"] ?></h3>
+                    <?php if ($produit["type"] == $categorie) { ?>
+
+                        <div class="carte-produit <?= htmlspecialchars($produit["couleur"]) ?>">
+
+                            <a
+                                href="Page_produit_nougats.php"
+                                class="lien-produit"
+                            >
+
+                                <img
+                                    src="<?= htmlspecialchars($produit["illustration"]) ?>"
+                                    alt="<?= htmlspecialchars($produit["nom"]) ?>"
+                                >
+
+                                <h3>
+                                    <?= htmlspecialchars($produit["nom"]) ?>
+                                </h3>
+
                             </a>
 
-                            <p><?= $produit["prix"] ?>€</p>
 
-                            <p><?= $produit["description"] ?></p>
+                            <p>
+                                <?= htmlspecialchars($produit["prix"]) ?>€
+                            </p>
 
-                                <!-- les atribut data servent a les transmettre les infos au js, quand on appuie sur ajouter au panier on a recupere les données... -->
-                                <button class="ajout-panier"
-                                    data-nom="<?= $produit["nom"] ?>"
-                                    data-prix="<?= $produit["prix"] ?>€"
-                                    data-image="<?= $produit["illustration"] ?>"
-                                    data-couleur="<?= $produit["couleur"] ?>">
-                                    Ajouter au panier
-                                </button>
 
-                            
+                            <p>
+                                <?= htmlspecialchars($produit["description"]) ?>
+                            </p>
 
-                            <p>★ ★ ★ ☆</p>
+
+                            <button
+                                class="ajout-panier"
+                                data-nom="<?= htmlspecialchars($produit["nom"]) ?>"
+                                data-prix="<?= htmlspecialchars($produit["prix"]) ?>€"
+                                data-image="<?= htmlspecialchars($produit["illustration"]) ?>"
+                                data-couleur="<?= htmlspecialchars($produit["couleur"]) ?>"
+                            >
+                                Ajouter au panier
+                            </button>
+
+
+                            <p>
+                                ★ ★ ★ ☆
+                            </p>
 
                         </div>
 
                     <?php } ?>
+
 
                 <?php } ?>
 
@@ -99,35 +174,86 @@ $categories = [
 
     </section>
 
-    <section class="banniere-defilement">
-        <h2>Craquez aussi pour</h2>
 
-        <button class="fleche gauche-fleche">‹</button>
+    <section class="banniere-defilement">
+
+        <h2>
+            Craquez aussi pour
+        </h2>
+
+        <button class="fleche gauche-fleche">
+            ‹
+        </button>
+
 
         <div class="produits-defilement">
-            <img src="img/vrai_image/image 1.png">
-            <img src="img/vrai_image/image 2.png">
-            <img src="img/vrai_image/image 3.png">
-            <img src="img/vrai_image/image 4.png">
-            <img src="img/vrai_image/image 5.png">
+
+            <img
+                src="img/vrai_image/image 1.png"
+                alt="Produit"
+            >
+
+            <img
+                src="img/vrai_image/image 2.png"
+                alt="Produit"
+            >
+
+            <img
+                src="img/vrai_image/image 3.png"
+                alt="Produit"
+            >
+
+            <img
+                src="img/vrai_image/image 4.png"
+                alt="Produit"
+            >
+
+            <img
+                src="img/vrai_image/image 5.png"
+                alt="Produit"
+            >
+
         </div>
 
-        <button class="fleche droite-fleche">›</button>
+
+        <button class="fleche droite-fleche">
+            ›
+        </button>
+
     </section>
 
-    <aside id="barre-panier" class="barre-panier"> <!--afficher un eelement secondaire  bar latérale afficher grace au js -->
-        <a href="page_panier.php" class="titre-panier">
+
+    <aside
+        id="barre-panier"
+        class="barre-panier"
+    >
+
+        <a
+            href="page_panier.php"
+            class="titre-panier"
+        >
+
             Votre panier...
-            <span>🛒</span>
+
+            <span>
+                🛒
+            </span>
+
         </a>
 
-        <div id="contenu-panier"></div> <!-- vide au depart remplie avec le js -->
+
+        <div id="contenu-panier"></div>
+
     </aside>
 
 </main>
 
+
 <script src="js/catalogue.js"></script>
 
+
 <?php
+
 include_once("footer.php");
+
 ?>
